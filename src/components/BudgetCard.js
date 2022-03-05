@@ -3,7 +3,15 @@ import { Card, ProgressBar, Stack, Button } from 'react-bootstrap';
 import { currencyFormatter } from '../utils';
 
 export default function BudgetCard(props) {
-  const { name, amount, max, gray, onAddExpenseClick, hideButtons } = props;
+  const {
+    name,
+    amount,
+    max,
+    gray,
+    hideButtons,
+    onAddExpenseClick,
+    onViewExpensesClick,
+  } = props;
   const classNames = [];
   if (amount > max) {
     classNames.push('bg-danger', 'bg-opacity-10');
@@ -42,7 +50,9 @@ export default function BudgetCard(props) {
             >
               Add Expense
             </Button>
-            <Button variant='outline-secondary'>View Expenses</Button>
+            <Button variant='outline-secondary' onClick={onViewExpensesClick}>
+              View Expenses
+            </Button>
           </Stack>
         )}
       </Card.Body>
